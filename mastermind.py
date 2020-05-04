@@ -49,12 +49,12 @@ class Mastermind:
         misplaced_list = []
         for index, (status, g, s) in enumerate(zip(correct_list, guess, mock_solution)):
             if status == True:
-                guess[index] = 0
-                mock_solution[index] = 0
+                guess[index] = -1
+                mock_solution[index] = -1
             print(guess)
         
         for color in guess:
-            if color is 0:
+            if color == -1:
                 misplaced_list.append(False)
             elif color in mock_solution:
                 misplaced_list.append(True)

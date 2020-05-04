@@ -13,13 +13,18 @@ from gameoverdialog import Ui_gameoverDialog
 
 class Ui_MainWindow(object):
 
-    def setupUi(self, MainWindow, MastermindObj):
+    def game_init(self, MastermindObj):
         self.selectedColors = []
         self.tries = 0
         self.mastermind = MastermindObj
+        self.mastermind.get_random_solution()
+
+    def setupUi(self, MainWindow, MastermindObj):
+        self.game_init(MastermindObj)
         MainWindow.setObjectName("MainWindow")
         MainWindow.setWindowModality(QtCore.Qt.NonModal)
         MainWindow.resize(303, 759)
+        MainWindow.setFixedSize(303, 759)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("diamond.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -31,7 +36,7 @@ class Ui_MainWindow(object):
         self.submitButton.setObjectName("submitButton")
         self.oldGuessesTable = QtWidgets.QTableWidget(self.centralwidget)
         self.oldGuessesTable.setEnabled(False)
-        self.oldGuessesTable.setGeometry(QtCore.QRect(0, 0, 201, 501))
+        self.oldGuessesTable.setGeometry(QtCore.QRect(10, 10, 201, 501))
         self.oldGuessesTable.setMaximumSize(QtCore.QSize(16777215, 16777213))
         self.oldGuessesTable.setBaseSize(QtCore.QSize(4, 10))
         self.oldGuessesTable.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
@@ -97,7 +102,7 @@ class Ui_MainWindow(object):
         self.colorsTable.verticalHeader().setVisible(False)
         self.colorsTable.verticalHeader().setDefaultSectionSize(50)
         self.thisGuessTable = QtWidgets.QTableWidget(self.centralwidget)
-        self.thisGuessTable.setGeometry(QtCore.QRect(0, 530, 201, 51))
+        self.thisGuessTable.setGeometry(QtCore.QRect(10, 530, 201, 51))
         self.thisGuessTable.setAcceptDrops(True)
         self.thisGuessTable.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.thisGuessTable.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
@@ -116,7 +121,7 @@ class Ui_MainWindow(object):
 
         self.scoreTable = QtWidgets.QTableWidget(self.centralwidget)
         self.scoreTable.setEnabled(False)
-        self.scoreTable.setGeometry(QtCore.QRect(220, 0, 61, 501))
+        self.scoreTable.setGeometry(QtCore.QRect(230, 10, 61, 501))
         self.scoreTable.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.scoreTable.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.scoreTable.setWordWrap(False)
@@ -130,9 +135,11 @@ class Ui_MainWindow(object):
         self.scoreTable.verticalHeader().setDefaultSectionSize(50)
 
         self.resetButton = QtWidgets.QPushButton(self.centralwidget)
-        self.resetButton.setGeometry(QtCore.QRect(220, 530, 51, 51))
+        self.resetButton.setGeometry(QtCore.QRect(230, 530, 61, 51))
         self.resetButton.setObjectName("resetButton")
         self.resetButton.clicked.connect(self.resetButtonClicked)
+
+        self.statusbar.setSizeGripEnabled(False)
 
         self.retranslateUi(MainWindow)
         self.colorsTable.cellClicked['int','int'].connect(self.clicked_color)
@@ -240,7 +247,7 @@ class Ui_MainWindow(object):
 
 if __name__ == "__main__":
     import sys
-    mastermind = Mastermind()
+    mastermind = Mastermind([3, 0, 5, 5])
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()

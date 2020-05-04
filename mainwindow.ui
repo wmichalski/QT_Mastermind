@@ -16,6 +16,10 @@
   <property name="windowTitle">
    <string>Mastermind</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>diamond.png</normaloff>diamond.png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="submitButton">
     <property name="geometry">

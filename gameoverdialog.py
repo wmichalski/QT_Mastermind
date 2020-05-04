@@ -11,6 +11,7 @@ class Ui_gameoverDialog(QtWidgets.QDialog):
     def setupUi(self, gameoverDialog):
         gameoverDialog.setObjectName("gameoverDialog")
         gameoverDialog.resize(268, 142)
+        gameoverDialog.setFixedSize(268, 142)
         self.buttonBox = QtWidgets.QDialogButtonBox(gameoverDialog)
         self.buttonBox.setGeometry(QtCore.QRect(-120, 110, 341, 32))
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
