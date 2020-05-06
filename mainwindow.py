@@ -25,17 +25,9 @@ class Ui_MainWindow(Ui_BaseMainWindow):
 
     def setupUi(self, MainWindow, MastermindObj):
         self.mainwindow = MainWindow
-        super().setupUi(self)
+        super().setupUi(MainWindow)
         self.game_init(MastermindObj)
         MainWindow.setObjectName("MainWindow")
-        MainWindow.setWindowModality(QtCore.Qt.NonModal)
-        MainWindow.resize(303, 759)
-        MainWindow.setFixedSize(303, 759)
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("diamond.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        MainWindow.setWindowIcon(icon)
-  
-        MainWindow.setCentralWidget(self.centralwidget)
 
         self.resetButton.clicked.connect(self.resetButtonClicked)
         self.colorsTable.cellClicked['int','int'].connect(self.clicked_color)

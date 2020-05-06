@@ -14,5 +14,3 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow, mastermind)
     MainWindow.show()
     sys.exit(app.exec_())
-
-
