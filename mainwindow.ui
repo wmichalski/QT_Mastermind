@@ -43,8 +43,8 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
+      <x>10</x>
+      <y>10</y>
       <width>201</width>
       <height>501</height>
      </rect>
@@ -176,6 +176,9 @@
       <width>301</width>
       <height>51</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-top-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));</string>
     </property>
     <property name="verticalScrollBarPolicy">
      <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -314,7 +317,7 @@
    <widget class="QTableWidget" name="thisGuessTable">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>10</x>
       <y>530</y>
       <width>201</width>
       <height>51</height>
@@ -391,8 +394,8 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>0</y>
+      <x>230</x>
+      <y>10</y>
       <width>61</width>
       <height>501</height>
      </rect>
@@ -402,6 +405,9 @@
     </property>
     <property name="horizontalScrollBarPolicy">
      <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="showGrid">
+     <bool>true</bool>
     </property>
     <property name="wordWrap">
      <bool>false</bool>
@@ -445,9 +451,9 @@
    <widget class="QPushButton" name="resetButton">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>230</x>
       <y>530</y>
-      <width>51</width>
+      <width>61</width>
       <height>51</height>
      </rect>
     </property>
