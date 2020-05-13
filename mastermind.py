@@ -11,6 +11,7 @@ class Mastermind:
         else:
             self.solution = solution
         print(solution)
+        self.is_over = False
 
     def get_random_solution(self):
         solution = []

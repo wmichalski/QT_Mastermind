@@ -63,6 +63,9 @@ class Ui_MainWindow(Ui_BaseMainWindow):
         item.setBackground(brush) 
 
     def clicked_submit(self):
+        if self.mastermind.is_over:
+            self.game_restart()
+            return
         if len(self.selectedColors) != 4:
             return
         print(self.selectedColors)
@@ -83,9 +86,13 @@ class Ui_MainWindow(Ui_BaseMainWindow):
 
         if correct == 4:
             self.colorsTable.setEnabled(False)
+            self.mastermind.is_over = True
+            self.submitButton.setText("Reset")
             self.show_game_over("won")
         elif self.tries == 10:
             self.colorsTable.setEnabled(False)
+            self.mastermind.is_over = True
+            self.submitButton.setText("Reset")
             self.show_game_over("lost")
             # game lost
 
@@ -97,11 +104,14 @@ class Ui_MainWindow(Ui_BaseMainWindow):
         choice = Dialog.exec_()
 
         if choice == QtWidgets.QDialog.Accepted:
-            mastermind = Mastermind()
-            self.setupUi(self.mainwindow, mastermind)
+            self.game_restart()
             pass
         else:
             pass
+
+    def game_restart(self):
+        mastermind = Mastermind()
+        self.setupUi(self.mainwindow, mastermind)
 
     def print_score(self, correct, misplaced):
         for col in range(4):
