@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/tmp/mainwindowTw7754.ui'
+# Form implementation generated from reading ui file '/tmp/mainwindowL10737.ui'
 #
 # Created by: PyQt5 UI code generator 5.10.1
 #
@@ -12,7 +12,7 @@ class Ui_BaseMainWindow(object):
     def setupUi(self, BaseMainWindow):
         BaseMainWindow.setObjectName("BaseMainWindow")
         BaseMainWindow.setWindowModality(QtCore.Qt.NonModal)
-        BaseMainWindow.resize(386, 759)
+        BaseMainWindow.resize(386, 780)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -317,22 +317,26 @@ class Ui_BaseMainWindow(object):
         self.colorsTable = QtWidgets.QTableWidget(self.centralwidget)
         self.colorsTable.setEnabled(True)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
-        sizePolicy.setHorizontalStretch(1)
+        sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.colorsTable.sizePolicy().hasHeightForWidth())
         self.colorsTable.setSizePolicy(sizePolicy)
         self.colorsTable.setMinimumSize(QtCore.QSize(270, 46))
         self.colorsTable.setMaximumSize(QtCore.QSize(270, 46))
         self.colorsTable.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.colorsTable.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
         self.colorsTable.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.colorsTable.setStyleSheet("border-top-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));")
         self.colorsTable.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.colorsTable.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.colorsTable.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.colorsTable.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
+        self.colorsTable.setAutoScroll(False)
         self.colorsTable.setProperty("showDropIndicator", False)
         self.colorsTable.setDragDropOverwriteMode(False)
         self.colorsTable.setSelectionMode(QtWidgets.QAbstractItemView.NoSelection)
+        self.colorsTable.setVerticalScrollMode(QtWidgets.QAbstractItemView.ScrollPerItem)
+        self.colorsTable.setCornerButtonEnabled(False)
         self.colorsTable.setRowCount(1)
         self.colorsTable.setColumnCount(6)
         self.colorsTable.setObjectName("colorsTable")

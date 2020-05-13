@@ -23,9 +23,13 @@ class Ui_MainWindow(Ui_BaseMainWindow):
         self.mastermind = MastermindObj
         self.mastermind.get_random_solution()
 
-    def setupUi(self, MainWindow, MastermindObj):
+    def setupUi(self, MainWindow, MastermindObj, size = None):
         self.mainwindow = MainWindow
         super().setupUi(MainWindow)
+
+        if size is not None:
+            self.mainwindow.resize(size)
+
         self.game_init(MastermindObj)
         MainWindow.setObjectName("MainWindow")
 
@@ -111,7 +115,7 @@ class Ui_MainWindow(Ui_BaseMainWindow):
 
     def game_restart(self):
         mastermind = Mastermind()
-        self.setupUi(self.mainwindow, mastermind)
+        self.setupUi(self.mainwindow, mastermind, self.mainwindow.size())
 
     def print_score(self, correct, misplaced):
         for col in range(4):
