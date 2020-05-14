@@ -32,6 +32,9 @@
    <iconset>
     <normaloff>diamond.png</normaloff>diamond.png</iconset>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(210, 210, 210)</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout_8">
     <item>
@@ -83,6 +86,12 @@
               <height>16777215</height>
              </size>
             </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(186, 189, 182);</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
             <property name="frameShadow">
              <enum>QFrame::Plain</enum>
             </property>
@@ -122,6 +131,12 @@
               <width>60</width>
               <height>16777215</height>
              </size>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(186, 189, 182)</string>
             </property>
             <property name="frameShadow">
              <enum>QFrame::Plain</enum>
@@ -191,9 +206,9 @@
                <colorrole role="Button">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>255</red>
-                  <green>255</green>
-                  <blue>255</blue>
+                  <red>186</red>
+                  <green>189</green>
+                  <blue>182</blue>
                  </color>
                 </brush>
                </colorrole>
@@ -263,18 +278,18 @@
                <colorrole role="Base">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>255</red>
-                  <green>255</green>
-                  <blue>255</blue>
+                  <red>186</red>
+                  <green>189</green>
+                  <blue>182</blue>
                  </color>
                 </brush>
                </colorrole>
                <colorrole role="Window">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>255</red>
-                  <green>255</green>
-                  <blue>255</blue>
+                  <red>186</red>
+                  <green>189</green>
+                  <blue>182</blue>
                  </color>
                 </brush>
                </colorrole>
@@ -328,9 +343,9 @@
                <colorrole role="Button">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>255</red>
-                  <green>255</green>
-                  <blue>255</blue>
+                  <red>186</red>
+                  <green>189</green>
+                  <blue>182</blue>
                  </color>
                 </brush>
                </colorrole>
@@ -400,18 +415,18 @@
                <colorrole role="Base">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>255</red>
-                  <green>255</green>
-                  <blue>255</blue>
+                  <red>186</red>
+                  <green>189</green>
+                  <blue>182</blue>
                  </color>
                 </brush>
                </colorrole>
                <colorrole role="Window">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>255</red>
-                  <green>255</green>
-                  <blue>255</blue>
+                  <red>186</red>
+                  <green>189</green>
+                  <blue>182</blue>
                  </color>
                 </brush>
                </colorrole>
@@ -465,9 +480,9 @@
                <colorrole role="Button">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>255</red>
-                  <green>255</green>
-                  <blue>255</blue>
+                  <red>186</red>
+                  <green>189</green>
+                  <blue>182</blue>
                  </color>
                 </brush>
                </colorrole>
@@ -537,18 +552,18 @@
                <colorrole role="Base">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>255</red>
-                  <green>255</green>
-                  <blue>255</blue>
+                  <red>186</red>
+                  <green>189</green>
+                  <blue>182</blue>
                  </color>
                 </brush>
                </colorrole>
                <colorrole role="Window">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>255</red>
-                  <green>255</green>
-                  <blue>255</blue>
+                  <red>186</red>
+                  <green>189</green>
+                  <blue>182</blue>
                  </color>
                 </brush>
                </colorrole>
@@ -593,6 +608,9 @@
             </property>
             <property name="acceptDrops">
              <bool>true</bool>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(186, 189, 182);</string>
             </property>
             <property name="frameShape">
              <enum>QFrame::NoFrame</enum>
@@ -816,9 +834,9 @@
              <property name="background">
               <brush brushstyle="SolidPattern">
                <color alpha="255">
-                <red>255</red>
-                <green>0</green>
-                <blue>0</blue>
+                <red>247</red>
+                <green>13</green>
+                <blue>26</blue>
                </color>
               </brush>
              </property>
@@ -834,7 +852,7 @@
               <brush brushstyle="SolidPattern">
                <color alpha="255">
                 <red>255</red>
-                <green>255</green>
+                <green>95</green>
                 <blue>0</blue>
                </color>
               </brush>
@@ -850,9 +868,9 @@
              <property name="background">
               <brush brushstyle="SolidPattern">
                <color alpha="255">
-                <red>0</red>
-                <green>255</green>
-                <blue>0</blue>
+                <red>255</red>
+                <green>227</green>
+                <blue>2</blue>
                </color>
               </brush>
              </property>
@@ -867,9 +885,9 @@
              <property name="background">
               <brush brushstyle="SolidPattern">
                <color alpha="255">
-                <red>0</red>
-                <green>0</green>
-                <blue>255</blue>
+                <red>166</red>
+                <green>214</green>
+                <blue>8</blue>
                </color>
               </brush>
              </property>
@@ -885,8 +903,8 @@
               <brush brushstyle="SolidPattern">
                <color alpha="255">
                 <red>0</red>
-                <green>255</green>
-                <blue>255</blue>
+                <green>170</green>
+                <blue>238</blue>
                </color>
               </brush>
              </property>
@@ -901,7 +919,7 @@
              <property name="background">
               <brush brushstyle="SolidPattern">
                <color alpha="255">
-                <red>255</red>
+                <red>159</red>
                 <green>0</green>
                 <blue>255</blue>
                </color>

@@ -30,9 +30,9 @@ class TableModel(QtCore.QAbstractTableModel):
                 if value == 5:
                     return QtGui.QColor("#9F00FF")
                 if value == 10:
-                    return QtGui.QColor(0, 0, 0)
+                    return QtGui.QColor(20, 20, 20)
                 if value == 11:
-                    return QtGui.QColor(255, 255, 255)
+                    return QtGui.QColor(230, 230, 230)
         except:
             pass
 
