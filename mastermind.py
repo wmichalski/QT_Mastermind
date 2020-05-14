@@ -12,6 +12,8 @@ class Mastermind:
             self.solution = solution
         print(solution)
         self.is_over = False
+        self.guesses = []
+        self.scores = []
 
     def get_random_solution(self):
         solution = []
@@ -21,12 +23,21 @@ class Mastermind:
         return solution
 
     def check_guess(self, guess):
+        self.guesses.append(guess.copy())
         correct = self.get_correct_colors(guess)
         misplaced = self.get_misplaced_colors(guess, correct)
 
         print("correct: {}, misplaced: {}".format(correct.count(True), misplaced.count(True)))
         print(correct)
         print(self.solution)
+
+        score = []
+        for i in range(correct.count(True)):
+            score.append(11)
+        for i in range(misplaced.count(True)):
+            score.append(10)
+
+        self.scores.append(score)
 
         return correct.count(True), misplaced.count(True)
 
@@ -64,3 +75,4 @@ class Mastermind:
                 misplaced_list.append(False)
             
         return misplaced_list
+       
