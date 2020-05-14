@@ -12,20 +12,23 @@ class TableModel(QtCore.QAbstractTableModel):
 
     def data(self, index, role):
         try:
+            # if role == QtCore.Qt.DisplayRole:
+            #     return self._data[index.row()][index.column()]
+
             if role == QtCore.Qt.BackgroundRole:
                 value = self._data[index.row()][index.column()]
                 if value == 0:
-                    return QtGui.QColor(255, 0, 0)
+                    return QtGui.QColor("#F70D1A")
                 if value == 1:
-                    return QtGui.QColor(255, 255, 0)
+                    return QtGui.QColor("#FF5F00")
                 if value == 2:
-                    return QtGui.QColor(0, 255, 0)
+                    return QtGui.QColor("#FFE302")
                 if value == 3:
-                    return QtGui.QColor(0, 0, 255)
+                    return QtGui.QColor("#A6D608")
                 if value == 4:
-                    return QtGui.QColor(0, 255, 255)
+                    return QtGui.QColor("#00AAEE")
                 if value == 5:
-                    return QtGui.QColor(255, 0, 255)
+                    return QtGui.QColor("#9F00FF")
                 if value == 10:
                     return QtGui.QColor(0, 0, 0)
                 if value == 11:
