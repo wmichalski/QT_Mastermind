@@ -12,6 +12,7 @@ class Mastermind:
             self.solution = solution
         print(solution)
         self.is_over = False
+        self.tries = 0
         self.guesses = []
         self.scores = []
 
@@ -23,7 +24,9 @@ class Mastermind:
         return solution
 
     def check_guess(self, guess):
+        self.tries += 1
         self.guesses.append(guess.copy())
+        
         correct = self.get_correct_colors(guess)
         misplaced = self.get_misplaced_colors(guess, correct)
 

@@ -19,7 +19,7 @@ class Ui_MainWindow(Ui_BaseMainWindow):
 
     def game_init(self):
         self.selectedColors = []
-        self.tries = 0
+        self.mastermind.tries = 0
         self.mastermind.solution = self.mastermind.get_random_solution()
         del self.mastermind.scores[:]
         del self.mastermind.guesses[:]
@@ -43,9 +43,9 @@ class Ui_MainWindow(Ui_BaseMainWindow):
 
     def resetButtonClicked(self):
         self.selectedColors = []
-        self.set_thisguesstable()
+        self.reset_thisguesstable()
 
-    def set_thisguesstable(self):
+    def reset_thisguesstable(self):
         for i in range(4):
             item = QtWidgets.QTableWidgetItem()
             item.setFlags(QtCore.Qt.ItemIsDropEnabled)
@@ -74,12 +74,11 @@ class Ui_MainWindow(Ui_BaseMainWindow):
         self.update_models()
 
         self.selectedColors = []
-        self.tries += 1
-        self.set_thisguesstable()
+        self.reset_thisguesstable()
 
         if correct == 4:
             self.game_over("won")
-        elif self.tries == 10:
+        elif self.mastermind.tries == 10:
             self.game_over("lost")
             # game lost
 
@@ -89,11 +88,21 @@ class Ui_MainWindow(Ui_BaseMainWindow):
         self.scoresModel.dataChanged.emit(self.scoresModel.index(
             0, 0), self.scoresModel.index(0, self.scoresModel.rowCount(self.scoresModel.index)))
 
+    def show_solution(self):
+        for i in range(4):
+            item = self.thisGuessTable.item(0, i)
+            color = self.colorsTable.item(0, self.mastermind.solution[i]).background().color()
+            brush = QtGui.QBrush(color)
+            brush.setStyle(QtCore.Qt.SolidPattern)
+            item.setBackground(brush)
+
     def game_over(self, text):
+        self.show_solution()
         self.colorsTable.setEnabled(False)
+        self.resetButton.setEnabled(False)
         self.mastermind.is_over = True
         self.submitButton.setText("Try again")
-            
+
         Dialog = QtWidgets.QDialog(self.centralwidget)
         ui = Ui_gameoverDialog(text)
         ui.setupUi(Dialog)
@@ -109,4 +118,6 @@ class Ui_MainWindow(Ui_BaseMainWindow):
     def game_restart(self):
         self.game_init()
         self.colorsTable.setEnabled(True)
+        self.resetButton.setEnabled(True)
+        self.reset_thisguesstable()
         self.submitButton.setText("Submit")
