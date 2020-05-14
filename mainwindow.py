@@ -12,6 +12,7 @@ from mastermind import Mastermind
 from gameoverdialog import Ui_gameoverDialog
 from basemainwindow import Ui_BaseMainWindow
 
+
 class Ui_MainWindow(Ui_BaseMainWindow):
     def __init__(self):
         super().__init__()
@@ -25,22 +26,19 @@ class Ui_MainWindow(Ui_BaseMainWindow):
         self.update_models()
         self.mastermind.is_over = False
 
-    def setupUi(self, MainWindow, MastermindObj, oldGuessesModel, scoresModel, size = None):
+    def setupUi(self, MainWindow, MastermindObj, oldGuessesModel, scoresModel):
         self.mastermind = MastermindObj
         self.mainwindow = MainWindow
         self.oldGuessesModel = oldGuessesModel
         self.scoresModel = scoresModel
-        
-        super().setupUi(MainWindow)
 
-        if size is not None:
-            self.mainwindow.resize(size)
+        super().setupUi(MainWindow)
 
         self.game_init()
         MainWindow.setObjectName("MainWindow")
 
         self.resetButton.clicked.connect(self.resetButtonClicked)
-        self.colorsTable.cellClicked['int','int'].connect(self.clicked_color)
+        self.colorsTable.cellClicked['int', 'int'].connect(self.clicked_color)
         self.submitButton.clicked.connect(self.clicked_submit)
 
     def resetButtonClicked(self):
@@ -48,18 +46,10 @@ class Ui_MainWindow(Ui_BaseMainWindow):
         self.set_thisguesstable()
 
     def set_thisguesstable(self):
-        item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsDropEnabled)
-        self.thisGuessTable.setItem(0, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsDropEnabled)
-        self.thisGuessTable.setItem(0, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsDropEnabled)
-        self.thisGuessTable.setItem(0, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsDropEnabled)
-        self.thisGuessTable.setItem(0, 3, item)
+        for i in range(4):
+            item = QtWidgets.QTableWidgetItem()
+            item.setFlags(QtCore.Qt.ItemIsDropEnabled)
+            self.thisGuessTable.setItem(0, i, item)
 
     def clicked_color(self, row, col):
         if len(self.selectedColors) >= 4:
@@ -67,10 +57,10 @@ class Ui_MainWindow(Ui_BaseMainWindow):
         self.selectedColors.append(col)
 
         item = self.thisGuessTable.item(0, len(self.selectedColors)-1)
-        color = self.colorsTable.item(row,col).background().color()
+        color = self.colorsTable.item(row, col).background().color()
         brush = QtGui.QBrush(color)
         brush.setStyle(QtCore.Qt.SolidPattern)
-        item.setBackground(brush) 
+        item.setBackground(brush)
 
     def clicked_submit(self):
         if self.mastermind.is_over:
@@ -88,26 +78,26 @@ class Ui_MainWindow(Ui_BaseMainWindow):
         self.set_thisguesstable()
 
         if correct == 4:
-            self.colorsTable.setEnabled(False)
-            self.mastermind.is_over = True
-            self.submitButton.setText("Reset")
-            self.show_game_over("won")
+            self.game_over("won")
         elif self.tries == 10:
-            self.colorsTable.setEnabled(False)
-            self.mastermind.is_over = True
-            self.submitButton.setText("Reset")
-            self.show_game_over("lost")
+            self.game_over("lost")
             # game lost
 
     def update_models(self):
-        self.oldGuessesModel.dataChanged.emit(self.oldGuessesModel.index(0, 0), self.oldGuessesModel.index(0, self.oldGuessesModel.rowCount(self.oldGuessesModel.index)))
-        self.scoresModel.dataChanged.emit(self.scoresModel.index(0, 0), self.scoresModel.index(0, self.scoresModel.rowCount(self.scoresModel.index)))
+        self.oldGuessesModel.dataChanged.emit(self.oldGuessesModel.index(
+            0, 0), self.oldGuessesModel.index(0, self.oldGuessesModel.rowCount(self.oldGuessesModel.index)))
+        self.scoresModel.dataChanged.emit(self.scoresModel.index(
+            0, 0), self.scoresModel.index(0, self.scoresModel.rowCount(self.scoresModel.index)))
 
-    def show_game_over(self, text):
+    def game_over(self, text):
+        self.colorsTable.setEnabled(False)
+        self.mastermind.is_over = True
+        self.submitButton.setText("Try again")
+            
         Dialog = QtWidgets.QDialog(self.centralwidget)
         ui = Ui_gameoverDialog(text)
         ui.setupUi(Dialog)
-        #Dialog.show()
+        # Dialog.show()
         choice = Dialog.exec_()
 
         if choice == QtWidgets.QDialog.Accepted:
